@@ -200,7 +200,7 @@ At least you can print the `State` with:
 print(state)
 ```
 
-## Close session
+### Close session
 
 Since we may want to make several requests in a row, a `session` is opened when the CRUD `object` is created. This can of course also be terminated at the end:
 
