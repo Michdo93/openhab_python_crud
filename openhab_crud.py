@@ -208,7 +208,7 @@ class CRUD(object):
 
                     return None
                 elif method == "delete":
-                    response = self.session.get(self.url + resource_path, auth=self.auth, timeout=5)
+                    response = self.session.delete(self.url + resource_path, auth=self.auth, timeout=5)
                     response.raise_for_status()
 
                     return None
