@@ -164,6 +164,49 @@ crud.sendCommand("testItem", "Lorem ipsum")
 
 Note: `postUpdate` and `sendCommand` have validation capabilities. With `type` you can set the `type` of the `Item`. This will call a function which checks that the `value` which should change the `State` of the `Item` is `persistent`. However, this does not mean that you are checking the correct `Type`, because `openHAB` may have a different `Type` than the one you want to update. If you will set the `validate` variable to `True` the `Item` is queried via the `REST API` and the `Type` is checked.
 
+For checking if you put a right value for the `State` of the assumed `Type` you can run as example
+
+```
+crud.sendCommand("testItem", "Lorem ipsum", "Switch")
+```
+
+or
+
+```
+crud.postUpdate("testItem", "Hello World", "Switch")
+```
+
+If you want to check if the actual `Type` on openHAB is correct and you can set the `State` to this value you can run:
+
+
+```
+crud.sendCommand("testItem", "Lorem ipsum", None, True)
+```
+
+or
+
+```
+crud.postUpdate("testItem", "Hello World", None, True)
+```
+
+Another possibility is: name:str, value, type:str = None, validate:bool = None):
+
+```
+crud.sendCommand("testItem", "Lorem ipsum", validate=True)
+```
+
+or
+
+```
+crud.postUpdate("testItem", "Hello World", validate=True)
+```
+
+Of course you can change the order as example to:
+
+```
+crud.postUpdate(validate=True, type="Switch", name="testItem")
+```
+
 There will be no response if it is correct!
 
 ### Deleting new items
