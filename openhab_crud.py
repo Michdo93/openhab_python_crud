@@ -238,7 +238,11 @@ class CRUD(object):
         headers = {"Content-type": "application/json", "Accept": "application/json"}
         resource_path = "/rest/items/" + name
         method = "put"
-        data = {"type": type, "name": name}
+
+        if self.__checkItemType(type) == True:
+            data = {"type": type, "name": name}
+        else:
+            raise ValueError(f"The item type does not exists. The item {name} cannot be created.")
 
         if label is not None:
             data.update({"label": label})
@@ -247,7 +251,8 @@ class CRUD(object):
             data.update({"groupNames": groupNames})
 
         if state is not None:
-            data.update({"state": state})
+            if self.__checkItemValue(type, state) == True:
+                data.update({"state": state})
 
         data = json.dumps(data)
 
