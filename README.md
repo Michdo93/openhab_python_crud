@@ -100,9 +100,9 @@ crud.create(state="ON", type="String", name="testItem")
 crud.create("testItem", "String", "my test string", ["group1", "group2", "group3"])
 ```
 
-There will be no response if it is correct!
+The function automatically checks if the `Type` of the `Item` exists in openHAB and thus can be created. If you want to set a `State` for this `Item`, it is also automatically checked whether the `State` is consistently valid for this `Type`.
 
-Notes: In the next update it will be validated if the state is consistent to the type!
+There will be no response if it is correct!
 
 ### Reading an item
 
