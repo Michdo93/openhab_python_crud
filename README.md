@@ -77,7 +77,7 @@ for item in items:
 
 You can only create a new `Item` if you have access to your local `openHAB` instance. For security reasons, this is prohibited via the cloud.
 
-An `Item` must contain minimum its [name](https://www.openhab.org/docs/configuration/items.html#name) and its [type](https://www.openhab.org/docs/configuration/items.html#type). A [label)(https://www.openhab.org/docs/configuration/items.html#label), a given [state](https://www.openhab.org/docs/configuration/items.html#state) or [Groups](https://www.openhab.org/docs/configuration/items.html#groups) will be optional.
+An `Item` must contain minimum its [Name](https://www.openhab.org/docs/configuration/items.html#name) and its [Type](https://www.openhab.org/docs/configuration/items.html#type). A [Label](https://www.openhab.org/docs/configuration/items.html#label), a given [State](https://www.openhab.org/docs/configuration/items.html#state) or [Groups](https://www.openhab.org/docs/configuration/items.html#groups) will be optional.
 
 So at least you can run as example following:
 
