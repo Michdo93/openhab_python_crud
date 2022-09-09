@@ -342,7 +342,6 @@ class CRUD(object):
 if __name__ == "__main__":
     #crud = CRUD("https://myopenhab.org", "<your_email>@<your_provider>", "<email_password>")
     crud = CRUD("http://<your_ip>:8080", "<username>", "<password>")
-
     items = crud.getAllItems()
 
     print(type(items))
@@ -380,28 +379,32 @@ if __name__ == "__main__":
     state = crud.getState("testItem")
     print(state)
 
-    time.sleep(2)
+    time.sleep(5)
 
     crud.sendCommand("testItem", "Lorem ipsum")
+
+    time.sleep(5)
 
     state = crud.getState("testItem")
     print(state)
 
-    time.sleep(2)
+    time.sleep(5)
 
     crud.update("testItem", "Hello World", "postUpdate")
 
     state = crud.getState("testItem")
     print(state)
 
-    time.sleep(2)
+    time.sleep(5)
 
     crud.update("testItem", "Lorem ipsum", "sendCommand")
+
+    time.sleep(5)
 
     state = crud.getState("testItem")
     print(state)
 
-    time.sleep(2)
+    time.sleep(5)
 
     crud.delete("testItem")
 
