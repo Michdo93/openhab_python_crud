@@ -233,6 +233,8 @@ class CRUD(object):
         return self.__executeRequest(headers, resource_path, method)
 
     def create(self, name:str, type:str, label:str = None, groupNames = None, state = None):
+        if self.isCloud:
+            raise Exception("Using the Create method is not supported if you are using the cloud. Please work with the local instance.")
         headers = {"Content-type": "application/json", "Accept": "application/json"}
         resource_path = "/rest/items/" + name
         method = "put"
@@ -265,6 +267,8 @@ class CRUD(object):
             self.postUpdate(name, value)
 
     def delete(self, name:str):
+        if self.isCloud:
+            raise Exception("Using the Delete method is not supported if you are using the cloud. Please work with the local instance.")
         headers = {"Content-type": "application/json"}
         resource_path = "/rest/items/" + name
         method = "delete"
@@ -331,7 +335,7 @@ class CRUD(object):
 
 # Main function.
 if __name__ == "__main__":
-    #crud = CRUD("https://myopenhab.org", "<your_email>@<provider>", "<email_password>")
+    #crud = CRUD("https://myopenhab.org", "<your_email>@<your_provider>", "<email_password>")
     crud = CRUD("http://<your_ip>:8080", "<username>", "<password>")
 
     items = crud.getAllItems()
